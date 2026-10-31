@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101713">
+    <title>Computer Speaker</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Computer Speaker home">
+          <span class="brand-mark" aria-hidden="true">◖</span>
+          <span>roomtone</span>
+        </a>
+        <span class="platform">LINUX AUDIO</span>
+      </header>
+
+      <section class="intro">
+        <p class="eyebrow">YOUR COMPUTER, REIMAGINED</p>
+        <h1>A speaker for<br><span>everything.</span></h1>
+        <p class="lede">Send music from a phone or record player to this computer over Bluetooth. Speaker mode makes this laptop identifiable as a Bluetooth speaker.</p>
+      </section>
+
+      <section class="control-card" aria-labelledby="connection-title">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">BLUETOOTH SPEAKER</p>
+            <h2 id="connection-title">Ready when you are</h2>
+          </div>
+          <div class="connection-indicator">
+            <span id="status-light" class="status-light" aria-hidden="true"></span>
+            <span id="connection-state" class="connection-state">Checking connection…</span>
+          </div>
+        </div>
+        <p id="adapter-name" class="adapter-name">Checking Bluetooth adapter…</p>
+        <div class="button-row">
+          <button id="start-button" class="button primary" type="button">Start speaker mode <span aria-hidden="true">↗</span></button>
+          <button id="stop-button" class="button secondary" type="button" hidden>Stop speaker mode</button>
+        </div>
+        <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="recording-card" aria-labelledby="recording-title">
+        <div class="recording-heading">
+          <div>
+            <p class="eyebrow">WAV CAPTURE</p>
+            <h2 id="recording-title">Record audio</h2>
+          </div>
+          <span id="recording-state" class="recording-state">Not recording</span>
+        </div>
+        <div class="button-row">
+          <button id="record-start-button" class="button primary" type="button" disabled>Start recording</button>
+          <button id="record-stop-button" class="button secondary" type="button" disabled>Stop recording</button>
+        </div>
+        <p id="recording-file" class="recording-file">Recordings will be saved in ~/Music/Computer Speaker.</p>
+        <p class="recording-note">Captures the connected Bluetooth audio stream directly as a stereo WAV file; the laptop microphone and other playback are not recorded.</p>
+      </section>
+
+      <section class="steps" aria-label="How to connect">
+        <div class="step">
+          <span class="step-number">01</span>
+          <div><h3>Appear as a speaker</h3><p>Start speaker mode to advertise a loudspeaker identity and accept audio pairing without a prompt on the player.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-number">02</span>
+          <div><h3>Pair your audio device</h3><p>Phones can pair here. For a turntable, select Bluetooth transmit/TX mode so it sends audio to the laptop.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-number">03</span>
+          <div><h3>Press play</h3><p>Your phone’s audio will come through the current default audio output on this computer.</p></div>
+        </div>
+      </section>
+
+      <section class="details" aria-label="Connection details">
+        <div class="detail-card">
+          <div class="detail-heading"><h2>Paired devices</h2><button id="refresh-button" class="text-button" type="button">Refresh</button></div>
+          <ul id="device-list" class="device-list"><li class="muted">No paired devices yet.</li></ul>
+        </div>
+        <div class="detail-card">
+          <div class="detail-heading"><h2>Computer output</h2><span class="sound-icon" aria-hidden="true">♫</span></div>
+          <ul id="output-list" class="output-list"><li class="muted">Checking audio output…</li></ul>
+        </div>
+      </section>
+
+      <footer>
+        <span>While speaker mode is on, this computer advertises a loudspeaker identity and accepts Bluetooth audio pairing. System approval may be required.</span>
+        <span id="pairing-note"></span>
+      </footer>
+    </main>
+  </body>
+</html>

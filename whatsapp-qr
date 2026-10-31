@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+"""Generate a PNG QR code for a URL."""
+
+import argparse
+from pathlib import Path
+
+import qrcode
+
+
+DEFAULT_URL = "https://chat.whatsapp.com/DEyylcVbjcHLKv2QxEWEIe"
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("url", nargs="?", default=DEFAULT_URL, help="URL to encode")
+    parser.add_argument(
+        "output",
+        nargs="?",
+        default="whatsapp-join.png",
+        help="PNG output path (default: whatsapp-join.png)",
+    )
+    args = parser.parse_args()
+
+    image = qrcode.make(args.url)
+    output = Path(args.output)
+    image.save(output)
+    print(f"Saved QR code to {output}")
+
+
+if __name__ == "__main__":
+    main()
